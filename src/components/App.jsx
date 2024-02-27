@@ -59,7 +59,7 @@ function App() {
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0)
 
   useEffect( () => {
-    fetch('http://localhost:9000/questions')
+    fetch('https://quiz-server-0315.onrender.com/getQuestions')
       .then(res => res.json())
       .then(data => dispatch({type: "dataRecived", payload: data}))
       .catch(err => dispatch({type: 'dataFailed'}))
@@ -79,10 +79,12 @@ function App() {
             <Footer>
               <Timer dispatch={dispatch} secondsRemaining={secondsRemaining}/>
               <NextButton dispatch={dispatch} answer={answer} numQuestion={numQuestion} index={index}/>            
-            </Footer>            
+            </Footer>
+                       
           </>
          )}
-         {status === 'finished' && <FinishScreen points={points} maxPoints={maxPoints} highscore={highscore} dispatch={dispatch}/>}      
+         {status === 'finished' && <FinishScreen points={points} maxPoints={maxPoints} highscore={highscore} dispatch={dispatch}/>}
+            
       </Mian1>
     </div>
   )
