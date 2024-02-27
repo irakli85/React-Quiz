@@ -59,7 +59,7 @@ function App() {
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0)
 
   useEffect( () => {
-    fetch('https://quiz-server-0315.onrender.com/getQuestions')
+    fetch('https://vercel-server-git-main-irakli85.vercel.app/getQuestions')
       .then(res => res.json())
       .then(data => dispatch({type: "dataRecived", payload: data}))
       .catch(err => dispatch({type: 'dataFailed'}))
